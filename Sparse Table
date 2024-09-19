@@ -2,7 +2,7 @@
 
 void sparse_min(vector<vector<int>> &sp , vector<int> &a , int n) {
     sp.resize(n , vector<int> (__lg(n) + 5)) ;
-    for(int i = 0 ; i< n ; i++) sp[i][10] = a[i] ; 
+    for(int i = 0 ; i< n ; i++) sp[i][0] = a[i] ; 
     for (int pw = 1; (1 << pw) <= n; pw++) {
         for (int idx = 0; idx + (1 << pw) <= n; idx++) {
             sp[idx][pw] = min(sp[idx][pw - 1], sp[idx + (1 << (pw - 1))][pw - 1]);
